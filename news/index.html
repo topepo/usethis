@@ -95,7 +95,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">usethis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.5.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.6.0.9000</span>
       </span>
     </div>
 
@@ -133,6 +133,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">Blog posts</li>
+    <li>
+      <a href="https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/">usethis 1.6.0</a>
+    </li>
     <li>
       <a href="https://www.tidyverse.org/articles/2019/04/usethis-1.5.0/">usethis 1.5.0 (and 1.4.0)</a>
     </li>
@@ -183,11 +186,20 @@
 <h1 class="page-header" data-toc-text="development version">
 <a href="#usethis-development-version" class="anchor"></a>usethis (development version)<small> Unreleased </small>
 </h1>
+</div>
+    <div id="usethis-160" class="section level1">
+<h1 class="page-header" data-toc-text="1.6.0">
+<a href="#usethis-160" class="anchor"></a>usethis 1.6.0<small> 2020-04-09 </small>
+</h1>
+<ul>
+<li><p><code><a href="../reference/use_github_action.html">use_github_action_check_standard()</a></code> is a new intermediate workflow that checks on more platforms than <code>_release</code>, but is less exhaustive than <code>_full</code> (<a href='https://github.com/jimhester'>@jimhester</a>).</p></li>
+<li><p><code><a href="../reference/tidyverse.html">create_tidy_package()</a></code> now uses an MIT license (<a href='https://github.com/topepo'>@topepo</a>, <a href='https://github.com/r-lib/usethis/issues/1096'>#1096</a>).</p></li>
+</ul>
 <div id="github-actions" class="section level2">
 <h2 class="hasAnchor">
 <a href="#github-actions" class="anchor"></a>GitHub actions</h2>
 <ul>
-<li><p>New <code><a href="../reference/github_actions.html">use_github_actions()</a></code>, <code><a href="../reference/use_github_action.html">use_github_action_check_release()</a></code>, <code><a href="../reference/use_github_action.html">use_github_action_check_full()</a></code>, <code><a href="../reference/use_github_action.html">use_github_action_pr_commands()</a></code>, to set up a GitHub Actions for a package (<a href='https://github.com/jimhester'>@jimhester</a>).</p></li>
+<li><p>New <code><a href="../reference/github_actions.html">use_github_actions()</a></code>, <code><a href="../reference/use_github_action.html">use_github_action_check_release()</a></code>, <code><a href="../reference/use_github_action.html">use_github_action_check_full()</a></code>, <code><a href="../reference/use_github_action.html">use_github_action_pr_commands()</a></code>, to set up GitHub Actions for a package (<a href='https://github.com/jimhester'>@jimhester</a>).</p></li>
 <li><p>We now recommend GitHub Actions instead of Travis-CI or AppVeyor, and strongly recommend upgrading your packages.</p></li>
 <li><p>Fix <code><a href="../reference/use_github_action.html">use_github_action()</a></code> URL parameter to ensure custom URLs are allowed. (<a href='https://github.com/coatless'>@coatless</a>, <a href='https://github.com/r-lib/usethis/issues/1065'>#1065</a>).</p></li>
 </ul>
@@ -199,7 +211,6 @@
 <li><p><code><a href="../reference/create_package.html">create_package()</a></code> gains a <code>roxygen</code> argument. If <code>TRUE</code> (the default), it adds a <code>RoxygenNote</code> field to the <code>DESCRIPTION</code> (which means the first run of <code>devtools::check()</code> will re-document the package, <a href='https://github.com/r-lib/usethis/issues/963'>#963</a>), and creates an empty <code>NAMESPACE</code> (which means you’ll always need an explicit <code>@export</code> if you want to export functions, <a href='https://github.com/r-lib/usethis/issues/927'>#927</a>). It also turns markdown processing on by default (<a href='https://github.com/r-lib/usethis/issues/911'>#911</a>).</p></li>
 <li><p><code><a href="../reference/use_rstudio.html">use_rstudio()</a></code> now sets the <code>LineEndingConversion</code> to <code>Posix</code> so that packages created using usethis always use LF line endings, regardless of who contributes to them (<a href='https://github.com/r-lib/usethis/issues/1002'>#1002</a>).</p></li>
 <li><p>In the <code>usethis.description</code> option, you can now set <code>Authors@R = person()</code> directly, without having to wrap in additional layer of quotes. If setting this in your <code>.Rprofile</code>, you’ll need to use <code><a href="https://rdrr.io/r/utils/person.html">utils::person()</a></code> since the utils package isn’t loaded until after your profile is executed.</p></li>
-<li><p><code><a href="../reference/tidyverse.html">create_tidy_package()</a></code> now uses an MIT license and the code of conduct.</p></li>
 </ul>
 </div>
 <div id="pr-helpers" class="section level2">
@@ -223,7 +234,7 @@
 <li><p>New <code><a href="../reference/use_data_table.html">use_data_table()</a></code> to set up a package for Import-ing <code>data.table</code> (<a href='https://github.com/michaelchirico'>@michaelchirico</a>, <a href='https://github.com/r-lib/usethis/issues/897'>#897</a>).</p></li>
 <li><p><code><a href="../reference/use_latest_dependencies.html">use_latest_dependencies()</a></code> replaces <code>use_tidy_version()</code> as the new name better reflect its usage (<a href='https://github.com/r-lib/usethis/issues/771'>#771</a>).</p></li>
 <li><p>New <code><a href="../reference/use_lifecycle.html">use_lifecycle()</a></code> helper to import the lifecycle badges for functions and arguments in your package. Learn more at <a href="https://lifecycle.r-lib.org/" class="uri">https://lifecycle.r-lib.org/</a>.</p></li>
-<li><p><code>use_release_issuue()</code> will include additional bullets if your package includes <code>release_bullets()</code> function which returns a character vector (and the package has been loaded with <code>load_all()</code>) (<a href='https://github.com/r-lib/usethis/issues/941'>#941</a>).</p></li>
+<li><p><code><a href="../reference/use_release_issue.html">use_release_issue()</a></code> will include additional bullets if your package includes <code>release_bullets()</code> function which returns a character vector (and the package has been loaded with <code>load_all()</code>) (<a href='https://github.com/r-lib/usethis/issues/941'>#941</a>).</p></li>
 </ul>
 </div>
 <div id="minor-improvements-and-bug-fixes" class="section level2">
